@@ -10,13 +10,19 @@ public class querries {
     boolean run = true;
     String username;
     ArrayList<user> users;
+
+    String red = "\u001B[31m";
+    String yellow = "\u001B[33m";
+    String green = "\u001B[32m";
+    String reset = "\u001B[0m";
+
     querries(String username,ArrayList<user> users){
         this.username = username;
         this.users = users;
     }
     public void takeinput(){
         while (run) {
-            System.out.printf("%s> ",username);
+            System.out.printf(yellow+"%s> "+reset,username);
             var input = in.nextLine();
             processIn(input);
         }
@@ -30,7 +36,7 @@ public class querries {
         Matcher Omatcher = Opattern.matcher(input);
         if (Omatcher.find()) {
             if (Omatcher.group(0).equals("add")) {
-                System.out.print("=> ");
+                System.out.print(green+"=> "+reset);
                 Pattern inpattern = Pattern.compile("add ([a-zA-Z0-9 ]*)");
                 Matcher inmatcher = inpattern.matcher(input);
                 String task = null;

@@ -5,8 +5,13 @@ public class Auth {
 
     Scanner in = new Scanner(System.in);
 
+    String red = "\u001B[31m";
+    String yellow = "\u001B[33m";
+    String green = "\u001B[32m";
+    String reset = "\u001B[0m";
+
     public String login(ArrayList<user> users){
-        System.out.println("=================== Log in ===================");   
+        System.out.println(yellow+"=================== Log in ==================="+reset);   
 
         System.out.print("Enter the username: ");
         var username = in.nextLine();
@@ -18,7 +23,7 @@ public class Auth {
 
         for (user user : users) {
             if (username.equals(user.username) && password.equals(user.password)) {
-                System.out.println(username + " loged in successfully.");
+                System.out.println(green+username + " loged in successfully."+reset);
                 success = true;
             }
         }
@@ -30,7 +35,7 @@ public class Auth {
     }
 
     public void signup(ArrayList<user> users){     
-        System.out.println("=================== Sign Up ===================");
+        System.out.println(yellow+"=================== Sign Up ==================="+reset);
 
         System.out.print("Enter the username: ");
         var username = in.nextLine();
@@ -41,7 +46,7 @@ public class Auth {
         user user = new user(username,password);
         users.add(user);
 
-        System.out.println(username + " account created successfully.");
+        System.out.println(green+username + " account created successfully."+reset);
     }
 
 }
